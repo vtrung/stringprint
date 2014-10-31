@@ -25,7 +25,8 @@ $(document).ready(function() {
 	function resetSubString() {
 		$('p').empty();
 		subStringIndex = 0;
-		printSubString();
+		// reset interval thread
+		clearInterval(printSubString);
 	}
 
 	printSubString();
