@@ -1,19 +1,19 @@
 
 $(document).ready(function() {
-	var aString = "Is this what you want, Brian?!\nCause this is what I built\n";
-	var subStringIndex = 0;
+	var CURRENT_STRING_TO_PRINT = "Is this what you want, Brian?!\nCause this is what I built\n";
+	var stringIndex = 0;
 	
 	//Print partial string to 'p' tag in html. index, end position of substring
-	function printStringIndex(text, index){
-		var nString = text.substring(0,index);
-		$('p').text(nString + "_");
+	function printStringIndex(string, index){
+		var letter = string.substring(0,index);
+		$('p').text(letter + "_");
 	}
 
 	function checkSubStringPosition() {
 		//run until whole string has been printed
-		if(subStringIndex < aString.length) {
-			printStringIndex(aString, subStringIndex);
-			subStringIndex++;
+		if(stringIndex < CURRENT_STRING_TO_PRINT.length) {
+			printStringIndex(CURRENT_STRING_TO_PRINT, stringIndex);
+			stringIndex++;
 		}
 	}
 
@@ -24,7 +24,12 @@ $(document).ready(function() {
 
 	function resetSubString() {
 		$('p').empty();
-		subStringIndex = 0;
+		stringIndex = 0;
+		var customStringValue = $("input").val();
+		if (customStringValue !== "") {
+			CURRENT_STRING_TO_PRINT = customStringValue
+			$("input").val("");
+		}
 		// reset interval thread
 		clearInterval(printSubString);
 	}
