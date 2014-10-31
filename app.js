@@ -4,6 +4,13 @@ $(document).ready(function() {
 	\nCause this is what I built\
 	";
 	
+	//Print partial string to 'p' tag in html. index, end position of substring
+	function printSubString(text, index){
+		var nString = text.substring(0,index);
+		$('p').text(nString + "_");
+	}
+
+	
 	//Set i as indicator of string position
 	var i = 0;
 	//Start animation on document ready, refresh 70/1000 sec
@@ -16,11 +23,6 @@ $(document).ready(function() {
 			}
 		} , 70);
 
-	//Print partial string to 'p' tag in html. index, end position of substring
-	function printSubString(text, index){
-		var nString = text.substring(0,index);
-		$('p').text(nString + "_");
-	}
-
+	
 });
 
